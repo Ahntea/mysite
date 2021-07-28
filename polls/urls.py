@@ -1,6 +1,6 @@
 from django.urls import path
 
-from . import views
+from . import advanced_views
 
 app_name = 'polls'
 #urlpatterns = [
@@ -14,8 +14,11 @@ app_name = 'polls'
 #    path('<int:question_id>/vote/', views.vote, name='vote'),
 #]
 urlpatterns = [
-    path('', views.IndexView.as_view(), name='index'),
-    path('<int:pk>/', views.DetailView.as_view(), name='detail'),
-    path('<int:pk>/results/', views.ResultsView.as_view(), name='results'),
-    path('<int:question_id>/vote/', views.vote, name='vote'),
+    #path('', views.index, name='index'),
+#    path('<int:question_id>/', views.detail, name='detail'),
+#    path('<int:question_id>/results/', views.results, name='results'),
+    path('', advanced_views.IndexView.as_view(), name='index'),
+    path('<int:pk>/', advanced_views.DetailView.as_view(), name='detail'),
+    path('<int:pk>/results/', advanced_views.ResultsView.as_view(), name='results'),
+    path('<int:question_id>/vote/', advanced_views.vote, name='vote'),
 ]
